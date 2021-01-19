@@ -4,7 +4,7 @@
 	font-style: normal;
 	font-weight: 400;
 	font-display: swap;
-	src: url(/fonts/gilroy-regular.woff2) format("woff2");
+	src: url(../fonts/gilroy-regular.woff2) format("woff2");
 }
 /* latin-gilroy-semibold */
 @font-face {
@@ -12,7 +12,7 @@
 	font-style: normal;
 	font-weight: 600;
 	font-display: swap;
-	src: url(/fonts/gilroy-semibold.woff2) format("woff2");
+	src: url(../fonts/gilroy-semibold.woff2) format("woff2");
 }
 /* latin-gilroy-bold */
 @font-face {
@@ -20,7 +20,7 @@
 	font-style: normal;
 	font-weight: 700;
 	font-display: swap;
-	src: url(/fonts/gilroy-bold.woff2) format("woff2");
+	src: url(../fonts/gilroy-bold.woff2) format("woff2");
 }
 /* cyrillic-ext */
 @font-face {
@@ -357,7 +357,9 @@ h2 {
 	color: var(--theme-color);
 	outline: none;
 }
-
+.navbar__button {
+	display: none;
+}
 .navbar__list {
 	display: flex;
 	align-items: center;
@@ -375,7 +377,6 @@ h2 {
 	position: absolute;
 	right: 3%;
 }
-
 /*!=================HEADER END===================*/
 /*!=================MAIN START===================*/
 /*=================HERO START===================*/
@@ -867,6 +868,10 @@ h2 {
 		padding: 15px;
 		min-height: 120px;
 	}
+	.section-title-wrap {
+		margin: 40px auto 0 auto;
+		width: 90%;
+	}
 	/*=================POST-TALL END===================*/
 	/*=================GET-START START===================*/
 	.cta__container {
@@ -895,7 +900,8 @@ h2 {
 		margin-bottom: 8px;
 	}
 	.blogs__text {
-		margin-bottom: 30px;
+		width: 90%;
+		margin: 0 auto 30px auto;
 	}
 	.blogs__subtitle {
 		font-size: 3.4rem;
@@ -938,6 +944,91 @@ h2 {
 		font-size: 2.8rem;
 	}
 	/*!=================COMMON STYLES END===================*/
+	/*!=================HEADER START===================*/
+	.header-container {
+		flex-direction: row;
+		align-items: center;
+		position: relative;
+	}
+	.header-container > :nth-child(n + 2) {
+		margin-top: 0;
+	}
+	.navbar__button {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		right: 3%;
+		top: -5px;
+		border-radius: 10px;
+		height: 50px;
+		width: 50px;
+		background-color: var(--theme-color-3);
+		border: 3px solid rgb(226, 223, 223);
+	}
+	.navbar__button:focus {
+		outline: none;
+		border: 3px solid var(--theme-color);
+	}
+	.navbar__button span {
+		height: 3px;
+		width: 25px;
+		background-color: var(--theme-color);
+		transition: 0.3s;
+	}
+	.navbar__button span:nth-of-type(n + 2) {
+		margin-top: 4px;
+	}
+	.navbar__button.open span:nth-of-type(1) {
+		transform: rotate(45deg) translate(5px, 5px);
+		background-color: rgb(185, 2, 2);
+		width: 30px;
+	}
+	.navbar__button.open span:nth-of-type(2) {
+		visibility: hidden;
+		transition: none;
+	}
+	.navbar__button.open span:nth-of-type(3) {
+		transform: rotate(-45deg) translate(5px, -5px);
+		background-color: rgb(185, 2, 2);
+		width: 30px;
+	}
+	.navbar__list {
+		visibility: hidden;
+		position: absolute;
+		width: 100%;
+		left: 0;
+		top: 55px;
+		padding: 12px 0;
+		display: flex;
+		flex-direction: column;
+		background-color: var(--light);
+		transition: 0.3s;
+		transform: scaleY(0);
+		transform-origin: 0 0;
+	}
+	.navbar__list.open {
+		visibility: visible;
+		transform: scaleY(1);
+	}
+	.navbar__list > li {
+		width: 100%;
+	}
+
+	.navbar__list > li:nth-of-type(n + 2) {
+		margin-left: 0;
+	}
+	.navbar__list > li a {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		padding: 12px 0;
+	}
+	.header-container .logo {
+		position: absolute;
+	}
+	/*!=================HEADER END===================*/
 	/*!=================MAIN START===================*/
 	/*=================HERO START===================*/
 	.hero-container {
@@ -1051,12 +1142,6 @@ h2 {
 }
 /*todo X-Small devices (iPhone 5/5s/SE, equals to 320px) */
 @media (max-width: 320px) {
-	/*!=================COMMON STYLES START===================*/
-	.button {
-		height: 45px;
-		min-width: 140px;
-	}
-	/*!=================COMMON STYLES END===================*/
 	/*!=================MAIN START===================*/
 	/*=================HERO START===================*/
 	.hero-container.reverse {
@@ -1118,3 +1203,37 @@ h2 {
 	/*=================FOOTER__SOCIAL END===================*/
 	/*!=================FOOTER END===================*/
 }
+
+/* .navbar__button {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	height: 50px;
+	width: 50px;
+	background-color: #ccc;
+}
+.navbar__button span {
+	height: 3px;
+	width: 25px;
+	background-color: #000000;
+	transition: 0.3s;
+}
+.navbar__button span:nth-of-type(n + 2) {
+	margin-top: 4px;
+}
+.navbar__button:hover span:nth-of-type(1) {
+	transform: rotate(45deg) translate(5px, 5px);
+	background-color: rgb(185, 2, 2);
+	width: 30px;
+}
+.navbar__button:hover span:nth-of-type(2) {
+	visibility: hidden;
+	transition: none;
+}
+.navbar__button:hover span:nth-of-type(3) {
+	transform: rotate(-45deg) translate(5px, -5px);
+	background-color: rgb(185, 2, 2);
+	width: 30px;
+} */
